@@ -1,0 +1,25 @@
+create table sales
+  (
+  salesid int not null Primary Key Identity(1,1),
+  storeno varchar(2),
+  termno varchar(5),
+  transno smallint,
+  cashierno varchar(5),
+  salesdate date,
+  salestime datetime,
+  sperson varchar(12),
+  productid varchar(7),
+  disccode char(1),
+  classno varchar(5),
+  memberno varchar(16),
+  unit     int,
+  gross money,
+  discount money,
+  foreign key (storeno) references store (storeno),
+  foreign key (termno) references terminal (termno),
+  foreign key (cashierno) references cashier (cashierno),
+  foreign key (sperson) references salesperson (sperson),
+  foreign key (productid) references product (productid),
+  foreign key (classno) references category (classno),
+  foreign key (memberno) references member (memberno)
+  );
